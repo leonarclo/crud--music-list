@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100&display=swap" rel="stylesheet">
+  <title>Music List - (CRUD JS)</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Today's songs <i class="fa-solid fa-music"></i></h1>
+    <h4>Minhas músicas mais ouvidas no momento</h4>
+    <div class="content">
+      <form class="form-content">
+        <div>
+          <input type="text" class="music-name" placeholder="Digite o nome da música..." data-input data-new="new" autocomplete="off" autofocus required>
+        </div>
+         
+         <div>
+          <input type="text" class="artist-name" placeholder="Artista(s)" data-input autocomplete="off" required>
+          <select name="select" class="select-genre" data-input required>
+            <option disabled selected value> Selecione uma opção </option>
+            <option value="Rock">Rock</option>
+            <option value="Metal">Metal</option>
+            <option value="Rap/Hip-Hop">Rap/Hip-Hop</option>
+            <option value="Nacional">Nacional</option>
+            <option value="POP">POP</option>
+            <option value="Eletro">Eletro</option>
+            <option value="Alternativa">Alternativa</option>
+            <option value="MPB">MPB</option>
+            <option value="Outro">Outro</option>
+         </select>
+        </div>
+
+        <div class="crud-buttons">
+          <button class="create">Criar</button>
+          <!-- <button class="read">Ler</button> -->
+          <!-- <button class="update">Salvar Alterações</button> -->
+          <!-- <button class="delete-all">Excluir Todas</button> -->
+        </div>
+      </form>
+
+      <table class="crud-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nome da Música</th>
+            <th>Artista(s)</th>
+            <th>Gênero</th>
+            <th>Editar</th>
+            <th>Deletar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Tabela -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
