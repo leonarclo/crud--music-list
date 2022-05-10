@@ -11,8 +11,8 @@ const tableBody = document.querySelector('.crud-table>tbody');
 
 // BUTTONS
 const btnCreate = document.querySelector('.create');
-const btnUpdate = document.querySelector('.uptade');
-const btnDeleteAll = document.querySelector('.delete-all');
+const btnDeleteAndCancel = document.querySelector('.delete');
+
 
 
 // SELETOR FUNC
@@ -49,6 +49,12 @@ const deleteSong = (id) => {
   setLocalStorage(songs)
 }
 
+const deleteAllSongs = (id) => {
+  const songs = readSong()
+  songs.splice(id, songs.length)
+  setLocalStorage(songs)
+}
+
 
 
 // SALVAR -----------------------------
@@ -69,7 +75,7 @@ const saveSong = (event) => {
       musicName.focus()      
     } else {
         updateSong(index, song);
-        updateTable();
+        updateTable()
       }
   }
 }
@@ -105,10 +111,23 @@ const updateTable = () => {
       <th><i class="fa-solid fa-pen-to-square edit-song-${index}"></i></th>
       <th><i class="fa-solid fa-trash-can delete-song-${index}"></i></th>
     `
-    tableBody.appendChild(newSong);
+    if (tableBody.appendChild(newSong)) {
+      btnCreate.innerHTML = 'Criar'
+      btnCreate.classList.remove('update')
+      btnCreate.classList.add('create')
+      if (btnCreate.classList[0] == 'create') {
+        btnDeleteAndCancel.innerHTML = 'Excluir Todas'
+        btnDeleteAndCancel.classList.remove('cancel');
+        btnDeleteAndCancel.classList.add('delete'); 
+      }      
+    };
+    clearFilds()
+    musicName.focus()
   });
 }
 updateTable()
+
+
 
 // Editar e Deletar
 
@@ -116,7 +135,15 @@ const editDelete = (event) => {
   if (event.target.classList[0] == 'fa-solid') {
     const [action, , index] = event.target.classList[2].split('-');
     if (action == 'edit') {
+      btnCreate.innerHTML = 'Salvar'
+      btnCreate.classList.remove('create');
+      btnCreate.classList.add('update');
       editItem(index);
+      if (btnCreate.classList[0] == 'update') {
+        btnDeleteAndCancel.innerHTML = 'Cancelar'
+        btnDeleteAndCancel.classList.remove('delete');
+        btnDeleteAndCancel.classList.add('cancel'); 
+      }
     } else {
       const response = confirm(`Deseja realmente excluir esta música?`);
       if (response) {
@@ -133,7 +160,7 @@ const editItem = (index) => {
   fillFields(song);
   musicName.focus()
 }
-
+  
 const fillFields = (song) => {
   musicName.value = song.name;
   artistName.value = song.artist;
@@ -141,9 +168,19 @@ const fillFields = (song) => {
   musicName.dataset.new = song.index;
 }
 
-
+const deleteCancel = (event) => {
+  if (btnDeleteAndCancel.classList[0] == 'delete') {
+    const response = confirm(`Deseja realmente excluir todas as músicas da lista?`);
+    if (response) {
+      event.preventDefault();
+      deleteAllSongs();
+      musicName.focus()   
+      updateTable();
+    } 
+  }
+}
 
 // EVENTOS -------------------------------
 btnCreate.addEventListener('click', saveSong);
-
 tableBody.addEventListener('click', editDelete);
+btnDeleteAndCancel.addEventListener('click', deleteCancel);
