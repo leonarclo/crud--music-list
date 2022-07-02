@@ -128,7 +128,6 @@ const updateTable = () => {
 updateTable()
 
 
-
 // Editar e Deletar
 
 const editDelete = (event) => {
