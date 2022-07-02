@@ -3,9 +3,9 @@
 </h1>
 
 <p align="center">
-  <img src="https://img.shields.io/github/repo-size/leonarclo/crud--music-list">
-  <img src="https://img.shields.io/github/last-commit/leonarclo/crud--music-list">
-  <img src="https://img.shields.io/github/license/leonarclo/crud--music-list">
+  <img src="https://img.shields.io/github/repo-size/leonarclo/todays-songs">
+  <img src="https://img.shields.io/github/last-commit/leonarclo/todays-songs">
+  <img src="https://img.shields.io/github/license/leonarclo/todays-songs">
 </p>
 
 _<p align="center">* Status: Concluído ✅</p>_
@@ -60,10 +60,10 @@ As seguintes ferramentas foram utilizadas no desenvolvimento do projeto:
 Além de um <u>navegador de internet atualizado</u>, você precisa ter instalado em sua máquina as seguintes ferramentas: [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e um editor de código como [VSCode](https://code.visualstudio.com/). Então, siga as instruções abaixo:
 ``` bash
 # Clone este repositório:
-$ git clone https://github.com/leonarclo/crud--music-list.git
+$ git clone https://github.com/leonarclo/todays-songs.git
 
 # Entre no diretório:
-$ cd crud--music-list
+$ cd todays-songs
 
 # Visualizaçao:
 $ npx liver-server
@@ -72,4 +72,4 @@ $ npx liver-server
 ---
 
 ## 📝 Licença
-Este projeto está licenciado sob a licença MIT. Para mais detalhes, acesse o arquivo [LICENSE.md](https://github.com/leonarclo/crud--music-list/blob/main/LICENSE).
+Este projeto está licenciado sob a licença MIT. Para mais detalhes, acesse o arquivo [LICENSE.md](https://github.com/leonarclo/todays-songs/blob/main/LICENSE).
